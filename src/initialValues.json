@@ -1,17 +1,17 @@
 {
-  "name": "Falsy comparisons",
-  "tasks": [
-    {
-      "name": "equal",
-      "source": "valid == false"
-    },
-    {
-      "name": "strict equal",
-      "source": "valid === false"
-    },
-    {
-      "name": "not",
-      "source": "!valid"
-    }
-  ]
+	"name": "Falsy comparisons",
+	"tasks": [
+		{
+			"name": "equal",
+			"source": "valid == false"
+		},
+		{
+			"name": "strict equal",
+			"source": "valid === false"
+		},
+		{
+			"name": "not",
+			"source": "!valid"
+		}
+	]
 }
