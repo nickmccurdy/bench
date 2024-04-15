@@ -1,0 +1,17 @@
+table {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
+tfoot {
+  border-top: 1px solid;
+}
+
+td,
+th {
+  border: 1px solid;
+}
+
+.fluid {
+  width: 100%;
+}
