@@ -5,9 +5,7 @@ import initialValues from "./initialValues.json";
 export default function App() {
 	return (
 		<>
-			<h1>
-				<a href="https://github.com/tinylibs/tinybench">tinybench</a>
-			</h1>
+			<h1>Bench</h1>
 			<Formik
 				initialValues={initialValues}
 				validate={({ tasks }) => {
@@ -102,9 +100,7 @@ export default function App() {
 			</Formik>
 
 			<p>
-				<a href="https://github.com/nickmccurdy/tinybench-web">
-					Source on GitHub
-				</a>
+				<a href="https://github.com/nickmccurdy/bench">Source on GitHub</a>
 			</p>
 		</>
 	);

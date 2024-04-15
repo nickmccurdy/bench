@@ -1,5 +1,5 @@
 {
-	"name": "tinybench-web",
+	"name": "bench",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",

@@ -1,4 +1,6 @@
-# [tinybench](https://github.com/tinylibs/tinybench) web
+# Bench
+
+Web app for [tinybench](https://github.com/tinylibs/tinybench)
 
 ## Scripts
 
