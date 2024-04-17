@@ -9,23 +9,23 @@
 		"build": "tsc && vite build",
 		"preview": "vite preview"
 	},
-	"packageManager": "pnpm@8.15.7",
+	"packageManager": "pnpm@9.0.1",
 	"dependencies": {
-		"formik": "^2.2.9",
+		"formik": "^2.4.5",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"tinybench": "^2.3.1"
+		"tinybench": "^2.7.0"
 	},
 	"devDependencies": {
-		"@types/react": "^18.0.21",
-		"@types/react-dom": "^18.0.6",
-		"@vitejs/plugin-react": "^2.1.0",
-		"eslint": "^8.0.0",
+		"@types/react": "^18.2.79",
+		"@types/react-dom": "^18.2.25",
+		"@vitejs/plugin-react": "^2.2.0",
+		"eslint": "^8.57.0",
 		"eslint-config-react-app": "^7.0.1",
 		"prettier": "^3.2.5",
 		"prettier-config-a11y": "^1.1.2",
-		"typescript": "^4.6.4",
-		"vite": "^3.2.7"
+		"typescript": "^4.9.5",
+		"vite": "^3.2.10"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
