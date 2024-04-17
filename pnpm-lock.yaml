@@ -7,9 +7,6 @@ settings:
 importers:
   .:
     dependencies:
-      formik:
-        specifier: ^2.4.5
-        version: 2.4.5(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1311,12 +1308,6 @@ packages:
         integrity: sha512-hw437iINopmQuxWPSUEvqE56NCPsiU8N4AYtfHmJFckclktzK9YQJieD3XkDCDH4OjL+C7zgPUh73R/nrcHrqw==,
       }
 
-  "@types/hoist-non-react-statics@3.3.5":
-    resolution:
-      {
-        integrity: sha512-SbcrWzkKBw2cdwRTwQAswfpB9g9LJWfjtUeW/jvNwbhC8cpmmNYVePa+ncbUe0rGTQ7G3Ff6mYUN2VMfLVr+Sg==,
-      }
-
   "@types/json-schema@7.0.15":
     resolution:
       {
@@ -1842,13 +1833,6 @@ packages:
       {
         integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==,
       }
-
-  deepmerge@2.2.1:
-    resolution:
-      {
-        integrity: sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==,
-      }
-    engines: { node: ">=0.10.0" }
 
   define-data-property@1.1.4:
     resolution:
@@ -2442,14 +2426,6 @@ packages:
         integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==,
       }
 
-  formik@2.4.5:
-    resolution:
-      {
-        integrity: sha512-Gxlht0TD3vVdzMDHwkiNZqJ7Mvg77xQNfmBRrNtvzcHZs72TJppSTDKHpImCMJZwcWPBJ8jSQQ95GJzXFf1nAQ==,
-      }
-    peerDependencies:
-      react: ">=16.8.0"
-
   fs.realpath@1.0.0:
     resolution:
       {
@@ -2617,12 +2593,6 @@ packages:
         integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==,
       }
     engines: { node: ">= 0.4" }
-
-  hoist-non-react-statics@3.3.2:
-    resolution:
-      {
-        integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==,
-      }
 
   ignore@5.3.1:
     resolution:
@@ -2979,12 +2949,6 @@ packages:
       }
     engines: { node: ">=10" }
 
-  lodash-es@4.17.21:
-    resolution:
-      {
-        integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==,
-      }
-
   lodash.debounce@4.0.8:
     resolution:
       {
@@ -3308,12 +3272,6 @@ packages:
     peerDependencies:
       react: ^18.2.0
 
-  react-fast-compare@2.0.4:
-    resolution:
-      {
-        integrity: sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==,
-      }
-
   react-is@16.13.1:
     resolution:
       {
@@ -3608,12 +3566,6 @@ packages:
         integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==,
       }
 
-  tiny-warning@1.0.3:
-    resolution:
-      {
-        integrity: sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==,
-      }
-
   tinybench@2.7.0:
     resolution:
       {
@@ -3644,12 +3596,6 @@ packages:
     resolution:
       {
         integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==,
-      }
-
-  tslib@2.6.2:
-    resolution:
-      {
-        integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==,
       }
 
   tsutils@3.21.0:
@@ -4802,11 +4748,6 @@ snapshots:
 
   "@rushstack/eslint-patch@1.10.2": {}
 
-  "@types/hoist-non-react-statics@3.3.5":
-    dependencies:
-      "@types/react": 18.2.79
-      hoist-non-react-statics: 3.3.2
-
   "@types/json-schema@7.0.15": {}
 
   "@types/json5@0.0.29": {}
@@ -5210,8 +5151,6 @@ snapshots:
       ms: 2.1.2
 
   deep-is@0.1.4: {}
-
-  deepmerge@2.2.1: {}
 
   define-data-property@1.1.4:
     dependencies:
@@ -5694,18 +5633,6 @@ snapshots:
     dependencies:
       is-callable: 1.2.7
 
-  formik@2.4.5(react@18.2.0):
-    dependencies:
-      "@types/hoist-non-react-statics": 3.3.5
-      deepmerge: 2.2.1
-      hoist-non-react-statics: 3.3.2
-      lodash: 4.17.21
-      lodash-es: 4.17.21
-      react: 18.2.0
-      react-fast-compare: 2.0.4
-      tiny-warning: 1.0.3
-      tslib: 2.6.2
-
   fs.realpath@1.0.0: {}
 
   fsevents@2.3.3:
@@ -5801,10 +5728,6 @@ snapshots:
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
-
-  hoist-non-react-statics@3.3.2:
-    dependencies:
-      react-is: 16.13.1
 
   ignore@5.3.1: {}
 
@@ -5986,8 +5909,6 @@ snapshots:
     dependencies:
       p-locate: 5.0.0
 
-  lodash-es@4.17.21: {}
-
   lodash.debounce@4.0.8: {}
 
   lodash.merge@4.6.2: {}
@@ -6156,8 +6077,6 @@ snapshots:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
-
-  react-fast-compare@2.0.4: {}
 
   react-is@16.13.1: {}
 
@@ -6351,8 +6270,6 @@ snapshots:
 
   text-table@0.2.0: {}
 
-  tiny-warning@1.0.3: {}
-
   tinybench@2.7.0: {}
 
   to-fast-properties@2.0.0: {}
@@ -6369,8 +6286,6 @@ snapshots:
       strip-bom: 3.0.0
 
   tslib@1.14.1: {}
-
-  tslib@2.6.2: {}
 
   tsutils@3.21.0(typescript@4.9.5):
     dependencies:

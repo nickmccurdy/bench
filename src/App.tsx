@@ -1,24 +1,21 @@
-import { ErrorMessage, Field, FieldArray, Form, Formik } from "formik";
+import { useState } from "react";
 import Bench from "tinybench";
 import initialValues from "./initialValues.json";
 
 export default function App() {
+	const [{ name, tasks }, setState] = useState(initialValues);
+	const isValid = new Set(tasks.map((task) => task.name)).size === tasks.length;
+
 	return (
 		<>
 			<h1>Bench</h1>
-			<Formik
-				initialValues={initialValues}
-				validate={({ tasks }) => {
-					if (new Set(tasks.map((task) => task.name)).size < tasks.length) {
-						return {
-							tasks: "Task names must be unique",
-						};
-					}
-				}}
-				onSubmit={async (values) => {
+			<form
+				onSubmit={async (event) => {
+					event.preventDefault();
+
 					const bench = new Bench();
 
-					for (const { name, source } of values.tasks) {
+					for (const { name, source } of tasks) {
 						// eslint-disable-next-line no-new-func
 						bench.add(name, new Function(source) as () => any);
 					}
@@ -34,70 +31,109 @@ export default function App() {
 					);
 				}}
 			>
-				{({ isValid, values }) => (
-					<Form>
-						<input type="reset" />
-						<br />
+				<button type="button" onClick={() => setState(initialValues)}>
+					Reset
+				</button>
+				<br />
 
-						<h2>Name</h2>
-						<Field name="name" />
+				<h2>Name</h2>
+				<input
+					value={name}
+					onChange={(event) => {
+						setState(({ tasks }) => ({ name: event.target.value, tasks }));
+					}}
+				/>
 
-						<h2>Tasks</h2>
-						<FieldArray name="tasks">
-							{({ push, remove }) => (
-								<table>
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th>Source</th>
-											<th />
-										</tr>
-									</thead>
+				<h2>Tasks</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Source</th>
+							<th />
+						</tr>
+					</thead>
 
-									<tbody>
-										{values.tasks.map((_, index) => (
-											<tr key={index}>
-												<td>
-													<Field name={`tasks.${index}.name`} />
-												</td>
+					<tbody>
+						{tasks.map((task, index) => (
+							<tr key={index}>
+								<td>
+									<input
+										value={task.name}
+										onChange={(event) => {
+											setState(({ name, tasks }) => ({
+												name,
+												tasks: [
+													...tasks.slice(0, index),
+													{ ...tasks[index], name: event.target.value },
+													...tasks.slice(index + 1),
+												],
+											}));
+										}}
+									/>
+								</td>
 
-												<td>
-													<Field name={`tasks.${index}.source`} as="textarea" />
-												</td>
+								<td>
+									<textarea
+										value={task.source}
+										onChange={(event) => {
+											setState(({ name, tasks }) => ({
+												name,
+												tasks: [
+													...tasks.slice(0, index),
+													{ ...tasks[index], source: event.target.value },
+													...tasks.slice(index + 1),
+												],
+											}));
+										}}
+									/>
+								</td>
 
-												<td>
-													<button type="button" onClick={() => remove(index)}>
-														X
-													</button>
-												</td>
-											</tr>
-										))}
-									</tbody>
+								<td>
+									<button
+										type="button"
+										onClick={() => {
+											setState(({ name, tasks }) => ({
+												name,
+												tasks: [
+													...tasks.slice(0, index),
+													...tasks.slice(index + 1),
+												],
+											}));
+										}}
+									>
+										X
+									</button>
+								</td>
+							</tr>
+						))}
+					</tbody>
 
-									<tfoot>
-										<tr>
-											<td colSpan={3}>
-												<button
-													className="fluid"
-													type="button"
-													onClick={() => push({ name: "", source: "" })}
-												>
-													Add
-												</button>
-											</td>
-										</tr>
-									</tfoot>
-								</table>
-							)}
-						</FieldArray>
+					<tfoot>
+						<tr>
+							<td colSpan={3}>
+								<button
+									className="fluid"
+									type="button"
+									onClick={() => {
+										setState(({ name }) => ({
+											name,
+											tasks: [...tasks, { name: "", source: "" }],
+										}));
+									}}
+								>
+									Add
+								</button>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
 
-						<ErrorMessage name="tasks" />
-						<button type="submit" disabled={!isValid}>
-							Run
-						</button>
-					</Form>
-				)}
-			</Formik>
+				{!isValid && <p>Task names must be unique</p>}
+				<button type="submit" disabled={!isValid}>
+					Run
+				</button>
+			</form>
 
 			<p>
 				<a href="https://github.com/nickmccurdy/bench">Source on GitHub</a>
