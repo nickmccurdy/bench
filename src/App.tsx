@@ -10,12 +10,14 @@ export default function App() {
 		<>
 			<h1>Bench</h1>
 			<form
+				// eslint-disable-next-line @typescript-eslint/no-misused-promises
 				onSubmit={async (event) => {
 					event.preventDefault();
 
 					const bench = new Bench();
 
 					for (const { name, source } of tasks) {
+						// eslint-disable-next-line @typescript-eslint/no-implied-eval
 						bench.add(name, new Function(source) as () => unknown);
 					}
 
@@ -32,7 +34,12 @@ export default function App() {
 					);
 				}}
 			>
-				<button type="button" onClick={() => setState(initialValues)}>
+				<button
+					type="button"
+					onClick={() => {
+						setState(initialValues);
+					}}
+				>
 					Reset
 				</button>
 				<br />
