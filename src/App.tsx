@@ -16,8 +16,7 @@ export default function App() {
 					const bench = new Bench();
 
 					for (const { name, source } of tasks) {
-						// eslint-disable-next-line no-new-func
-						bench.add(name, new Function(source) as () => any);
+						bench.add(name, new Function(source) as () => unknown);
 					}
 
 					await bench.run();
@@ -25,8 +24,10 @@ export default function App() {
 					console.table(
 						bench.tasks.map(({ name, result }) => ({
 							"Task Name": name,
+							/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 							"Average Time (ps)": result?.mean! * 1000,
 							"Variance (ps)": result?.variance! * 1000,
+							/* eslint-enable @typescript-eslint/no-non-null-asserted-optional-chain */
 						})),
 					);
 				}}
