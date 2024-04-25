@@ -1,6 +1,11 @@
 import { useState } from "react";
-import Bench from "tinybench";
+import Bench, { Fn } from "tinybench";
 import initialValues from "./initialValues.json";
+
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const AsyncFunction = (async () => {}).constructor as new (
+	...args: string[]
+) => Fn;
 
 export default function App() {
 	const [{ name, tasks }, setState] = useState(initialValues);
@@ -17,8 +22,7 @@ export default function App() {
 					const bench = new Bench();
 
 					for (const { name, source } of tasks) {
-						// eslint-disable-next-line @typescript-eslint/no-implied-eval
-						bench.add(name, new Function(source) as () => unknown);
+						bench.add(name, new AsyncFunction(source));
 					}
 
 					await bench.run();
