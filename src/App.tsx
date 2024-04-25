@@ -25,17 +25,10 @@ export default function App() {
 						bench.add(name, new AsyncFunction(source));
 					}
 
+					await bench.warmup();
 					await bench.run();
 
-					console.table(
-						bench.tasks.map(({ name, result }) => ({
-							"Task Name": name,
-							/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain, @typescript-eslint/no-non-null-assertion */
-							"Average Time (ps)": result?.mean! * 1000,
-							"Variance (ps)": result?.variance! * 1000,
-							/* eslint-enable @typescript-eslint/no-non-null-asserted-optional-chain, @typescript-eslint/no-non-null-assertion */
-						})),
-					);
+					console.table(bench.table());
 				}}
 			>
 				<button
