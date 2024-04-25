@@ -7,9 +7,16 @@ const AsyncFunction = (async () => {}).constructor as new (
 	...args: string[]
 ) => Fn;
 
+function isNotNull(value: unknown): value is NonNullable<unknown> {
+	return value !== null;
+}
+
 export default function App() {
 	const [{ name, tasks }, setState] = useState(initialValues);
 	const isValid = new Set(tasks.map((task) => task.name)).size === tasks.length;
+	const [results, setResults] = useState(
+		new Array<Record<string, string | number>>(),
+	);
 
 	return (
 		<>
@@ -28,7 +35,7 @@ export default function App() {
 					await bench.warmup();
 					await bench.run();
 
-					console.table(bench.table());
+					setResults(bench.table().filter(isNotNull));
 				}}
 			>
 				<button
@@ -138,6 +145,31 @@ export default function App() {
 				<button type="submit" disabled={!isValid}>
 					Run
 				</button>
+
+				{results.length ? (
+					<>
+						<h2>Results</h2>
+						<table>
+							<thead>
+								<tr>
+									{Object.keys(results[0]).map((key) => (
+										<th key={key}>{key}</th>
+									))}
+								</tr>
+							</thead>
+
+							<tbody>
+								{results.map((result) => (
+									<tr key={result["Task Name"]}>
+										{Object.entries(result).map(([key, value]) => (
+											<td key={key}>{value}</td>
+										))}
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</>
+				) : null}
 			</form>
 
 			<p>
